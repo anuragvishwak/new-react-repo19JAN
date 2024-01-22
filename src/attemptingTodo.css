@@ -1,0 +1,32 @@
+
+#designingHeading {
+    color: aquamarine;
+    text-align: center;
+}
+
+.designingBucket{
+    color: azure;
+    background-color: rgb(186, 129, 255);
+    height:400px;
+    width: 600px;
+    margin-left: 17%;
+    text-align: center;
+    border: 10px solid rgb(255, 183, 183);
+    border-top-left-radius: 6%;
+    border-top-right-radius: 6%;
+    border-bottom-left-radius:6% ;
+    border-bottom-right-radius: 6%;
+}
+
+.designingInput{
+    background-color: rgb(240, 255, 186);
+    padding-left: 10%;
+    padding-top: 2%;
+    margin-left: 36%;
+    border: 5px solid rgb(121, 255, 12);
+ border-radius: 12%;
+}
+
+.designingButton{
+    margin: 1%;
+}
