@@ -1,28 +1,72 @@
 import React, { useState } from 'react'
+import './attemptingTodo.css'
+
 
 function AttemptingTodo() {
-const [activity, setActivity] = useState('')
-const [listData, setlistData] = useState([])
-function addActivity(){
-  setlistData((listData)=>{
-    const updatedlist = [...listData, activity]
-    console.log(updatedlist)
-    //so basically this snippet make the input field error.
-    setActivity('');
-    return updatedlist
+
+  const [title, setTitle] = useState('')
+  const [description, setdescription] = useState('')
+  const [mainTask, setMainTask] = useState([])
+
+
+
+  //we had taken an form 
+  const submitHandler = (event) => {
+    event.preventDefault()
+    setMainTask([...mainTask,{ title, description }])
+    setTitle('')
+    setdescription('')
+      
+    //  const deleteHandler = (iterate) => {
+    //    let copytask  = [...mainTask]
+    //    copytask.splice(iterate,1)
+    //    setMainTask(copytask)
+    //  }
+
+  }
+
+  let render = mainTask.map((tsk,iterate) => {
+    return (
+       <div className='render' key={iterate}>
+      <h2>{"title : "+tsk.title}</h2>
+      <p>{"Details : "+tsk.description}</p>
+      {/* <button onClick={()=>{
+        setMainTask()
+      }}>DELETE</button>
+      */}
+    </div>
+    )
   })
-}
 
   return (
-    <div className='container'>
-      <h1>TODO LIST</h1>
-      <input onChange={(e)=>setActivity(e.target.value)} value={activity} placeholder='add activity' type='text'></input>
-      <button onClick={addActivity}>ADD</button>
-      <h1>{listData!=[] && listData.map((data,key)=>{return (<p key = {key}>
+    <>
+      <h1 id='designingHeading'>TODO LIST</h1>
+      <form className='designingForm' onSubmit={submitHandler}>
 
-        <div>{data}</div>
-      </p> )})}</h1>
-    </div>
+        {/* creation of the title */}
+        <label>TITLE</label>
+        <input
+          value={title}
+          onChange={(event1) => { setTitle(event1.target.value) }}
+          className='designingInput1'
+          placeholder='enter your title'
+          type='text'>
+        </input>
+
+        {/* creation of the description */}
+        <label>DESCRIPTION</label>
+        <input className='designingInput2'
+          value={description}
+          onChange={(event2) => { setdescription(event2.target.value) }}
+          placeholder='enter your description'
+          type='text'>
+        </input>
+        <button className='designingButton'>ADD</button>
+
+      </form><br/><br/>
+
+      <div className='designingDisplay'>{render}</div>
+    </>
   )
 }
 
