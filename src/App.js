@@ -12,6 +12,8 @@ import PerformingAxios from './axios';
 import AnotherAxios from './AnotherAxios';
 import Postmethod from './testing';
 import UsingPostMethod from './testing';
+import GPTAttemptingTodo from './gptcodetesting';
+import CreatingAttemptingTodo from './creatingTodoList'
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
       {/* <PerformingAxios/> */}
       {/* <AnotherAxios/> */}
       {/* <UsingPostMethod/> */}
+      {/* <GPTAttemptingTodo/> */}
       <AttemptingTodo/>
+      {/* <CreatingAttemptingTodo/> */}
     </div>
   );
 }
